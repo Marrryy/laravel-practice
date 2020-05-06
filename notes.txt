@@ -1,0 +1,75 @@
+if anything can't composer create-project laravel/laravel name_app
+
+place composer.json
+"repositories": [
+    {
+         "type": "composer", 
+         "url": "https://packagist.org"
+    },
+    { "packagist": false }
+]
+
+and command
+composer config -g repo.packagist composer https://packagist.phpcomposer.com
+
+
+in more detail in 
+http://codinginharmony.blogspot.com/2012/10/forcing-composer-to-use-https.html#comment-form
+https://stackoverflow.com/questions/40309620/composer-content-length-mismatch-http-packagist-org-could-not-be-fully-l
+
+
+--------------------
+How to add/change virtual host 
+1. C:\xampp\apache\conf\extra\httpd-vhosts.conf
+add 
+<VirtualHost *:80>
+   DocumentRoot "C:/xampp/htdocs/lsapp/public" // folder name
+   ServerName lsapp.test // Set name into what 
+</VirtualHost>
+
+2. open text editor, go to C:\Windows\System32\drivers\etc
+and open hosts file (type is all type) and add
+127.0.0.1 lsapp.test //name server name
+
+
+------------
+npm run dev
+npm run watch
+
+-------------
+php artisan make:controller PostsController --resource  
+-to make controller and each function
+
+php artisan migrate 
+-to migrate database
+
+php artisan tinker 
+-to add item in database cmd 
+    $post = new App\Post();
+    $post->title="Post One";
+    $post->body="this is the post body"
+    $post->save()
+
+php artisan route:list
+-to list all route
+
+ ---------------
+composer require laravelcollective/html     
+-to add Form function
+
+composer require unisharp/laravel-ckeditor      
+-to add rich editor
+
+----------------
+php artisan make:auth
+-to make auth (laravel already supported this)
+
+php artisan make:migration add_user_id_to_posts
+- to add user_id in table post as foreign keys
+
+
+--------------------
+add this uncomment the line extension=php_fileinfo.dll in php.ini and then restart your apache
+https://stackoverflow.com/questions/30405960/laravel-5-validating-mime-types
+
+https://stackoverflow.com/questions/43097868/laravel-5-2-45-method-store-does-not-exist
